@@ -1,0 +1,118 @@
+* {
+    border: none;
+    font-family: Font Awesome, Roboto, Arial, sans-serif;
+    font-size: 13px;
+    color: #ffffff;
+    padding: 2px 3px;
+    border-radius: 7px;
+}
+
+window {
+    /*font-weight: bold;*/
+}
+
+
+window#waybar {
+    background: transparent;
+    /*    background-color: rgba(43, 48, 59, 0.5); */
+    /*    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+#network {
+    font-size: 12px;
+}
+
+
+#waybar.empty #window {
+    background-color: transparent;
+}
+
+
+#hardware,
+#stats,
+#custom-power,
+#bateria {
+    padding: 0 10px;
+    background-color: rgba(2, 25, 29, 0.85);
+    margin-right: 5px;
+}
+
+
+#taskbar {
+    padding: 0 10px;
+    background-color: rgba(2, 25, 29, 0.85);
+}
+
+#privacy {
+    color: black;
+    margin-right: 10px;
+    background-color: rgba(84, 71, 3, 0.85);
+}
+
+
+/*-----Indicators----*/
+#idle_inhibitor.activated {
+    color: #2dcc36;
+}
+
+#pulseaudio.muted {
+    color: #cc3436;
+}
+
+#power-profiles-daemon.performance {
+    color: #cc2d2d;
+}
+
+#power-profiles-daemon.power-saver {
+    color: #2dcc36;
+}
+
+#battery.charging {
+    color: #2dcc36;
+}
+
+#battery.warning:not(.charging) {
+    color: #e6e600;
+}
+
+#battery.critical:not(.charging) {
+    color: #cc3436;
+}
+
+#temperature.critical {
+    color: #cc3436;
+}
+
+/*-----Colors----*/
+/*
+ *rgba(0,85,102,1),#005566 --> Indigo(dye)
+ *rgba(0,43,51,1),#002B33 --> Dark Green 
+ *rgba(0,153,153,1),#009999 --> Persian Green 
+ *
+ */
+
+/* Workspaces */
+
+#workspaces button {
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    color: white;
+    background: transparent;
+    border-radius: 4px;
+    color: alpha(white, 0.3);
+}
+
+#workspaces button.urgent {
+    font-weight: bold;
+    color: white;
+}
+
+#workspaces button.active {
+    padding: 4px 2px;
+    background: alpha(white, 0.4);
+    color: lighter(white);
+    border-radius: 4px;
+}

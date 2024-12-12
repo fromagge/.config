@@ -1,0 +1,221 @@
+// __        __          _                 
+// \ \      / /_ _ _   _| |__   __ _ _ __  
+//  \ \ /\ / / _` | | | | '_ \ / _` | '__| 
+//   \xVxxVx/x(_|x|x|_|x|x|_)x|x(_|x|x|    
+//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    
+//                 |___/                   
+//  
+// by fromagge (2024) 
+// ----------------------------------------------------- 
+//
+{
+    "modules-left": [
+        "wlr/taskbar"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "privacy",
+        "group/stats",
+        "group/hardware",
+        "group/bateria",
+        "custom/power"
+    ],
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "tray",
+            "backlight",
+            "pulseaudio"
+        ]
+    },
+    "fixed-center": true,
+    "wlr/taskbar": {
+        "all-outputs": false,
+        "format": "{icon}",
+        "icon-size": 14,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "Alacritty"
+        ],
+        "app_ids-mapping": {
+            "firefoxdeveloperedition": "firefox-developer-edition"
+        },
+        "rewrite": {
+            "Firefox Web Browser": "Firefox",
+            "Foot Server": "Terminal"
+        }
+    },
+    "group/bateria": {
+        "orientation": "horizontal",
+        "modules": [
+            "power-profiles-daemon",
+            "battery"
+        ]
+    },
+    "group/stats": {
+        "orientation": "horizontal",
+        "modules": [
+            "network",
+            "memory",
+            "cpu",
+            "custom/gpu-usage"
+        ]
+    },
+    "network": {
+        "interval": 1,
+        "interace": "wlan0",
+        "format": "{bandwidthUpBytes}   {bandwidthDownBytes} ",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+        "min-length": 17
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "  {usage}",
+        "max-length": 100
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {:3}",
+        "max-length": 10
+    },
+    "power-profiles-daemon": {
+        "format": "{icon} ",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "custom/gpu-usage": {
+        "exec": "cat /sys/class/hwmon/hwmon4/device/gpu_busy_percent",
+        "format": "  {:2}",
+        "return-type": "",
+        "interval": 1
+    },
+    "battery": {
+        "bat": "BAT1",
+        "interval": 1,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}\t{power:2.2f} w",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "Now at {capacity}",
+        "tooltip-format-charging": "Now at {capacity}%\n{timeTo}",
+        "max-length": 200
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} ",
+        "format-icons": [
+            ""
+        ]
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "all-outputs": false,
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": []
+        },
+        "format-icons": {
+            "1": "१",
+            "2": "२",
+            "3": "३",
+            "4": "४",
+            "5": "५",
+            "6": "६",
+            "7": "७",
+            "8": "८",
+            "9": "९",
+            "10": "०",
+	    "11": "१९"
+        },
+        "sort-by-number": true
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 2
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+    "mpris": {
+        "format": "{artist} {player_icon}   {title}",
+        "format-stopped": "",
+        "player-icons": {
+            "spotify": ""
+        },
+        "status-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "max-length": 50
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "{icon} ",
+        "format-bluetooth-muted": "{icon} ",
+        "format-muted": "{icon}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-scroll-up": "pactl -- set-sink-volume 0 +10%",
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout"
+    },
+    "privacy": {
+        "icon-spacing": -2,
+        "icon-size": 12,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare"
+            },
+            {
+                "type": "audio-in"
+            }
+        ]
+    }
+}
